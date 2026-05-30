@@ -12,7 +12,7 @@ class RoombaComponent : public Component {
   void loop() override;
   void dump_config() override;
   
-  void set_uart(uart::UARTBus *uart) { uart_ = uart; }
+  void set_uart(uart::UARTComponent *uart) { uart_ = uart; }
   
   // Датчики
   sensor::Sensor *voltage_sensor = new sensor::Sensor();
@@ -32,7 +32,7 @@ class RoombaComponent : public Component {
   void send_command(const char *cmd);
   
  private:
-  uart::UARTBus *uart_;
+  uart::UARTComponent *uart_;
   Roomba *roomba_;
   uint32_t last_update_ = 0;
   uint32_t polling_interval_ = 8000;
