@@ -42,12 +42,12 @@ RoombaModeSensor = roomba_ns.class_("RoombaModeSensor", text_sensor.TextSensor, 
 CONFIG_SCHEMA = cv.Schema(
     {
         cv.GenerateID(): cv.declare_id(Roomba),
-        cv.GenerateID(CONF_UART_ID): cv.use_id(uart.UARTBus),
+        cv.GenerateID(CONF_UART_ID): cv.use_id(uart.UARTComponent),
         cv.Optional("polling_interval", default="8000ms"): cv.time_period,
     }
 ).extend(cv.COMPONENT_SCHEMA)
 
-# Схемот датчиков
+# Схема датчиков
 SENSOR_SCHEMA = cv.Schema(
     {
         cv.GenerateID(): cv.declare_id(sensor.Sensor),
